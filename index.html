@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>몬스터볼 이미지애니메이션</title>
+    <!-- 제이쿼리 -->    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- 모바일 -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            ball1Num = 0;  // ball1넘버
+            ball1Key = 0;  // ball1실행키(기본값=실행)
+            ball2Num = 0;  // ball2넘버
+            ball2Key = 1;  // ball2실행키(기본값=실행X)
+            $("#img1").click(function(){
+                ball1Key = 1;  // 실행X
+            })
+            // ball1실행
+            setInterval(function(){
+                // 기본값
+                if(ball1Key == 0){
+                    // 111에서 0으로 돌아가기
+                    if(ball1Num >= 110){
+                        ball1Num = -1;
+                    }
+                    ball1Num = ball1Num + 1;
+                    $("#img1").attr({"src":"ball1/ball1_" + ball1Num + ".png"})
+                }
+                // 클릭후
+                else if(ball1Key == 1){
+                    if(ball1Num <= 109){
+                        ball1Num = ball1Num + 1;
+                        $("#img1").attr({"src":"ball1/ball1_" + ball1Num + ".png"})
+                    }
+                    else if(ball1Num == 110){
+                        $("#img1").css({"display":"none"})
+                        ball2Key = 0;
+                    }
+                }
+            },22)
+            // ball2실행
+            setInterval(function(){
+                // 기본값
+                if(ball2Key == 1){
+                    $("#img2").css({"display":"none"})
+                }
+                // 클릭후
+                else if(ball2Key == 0){
+                    if(ball2Num <= 15){
+                        $("#img2").css({"display":"inline"})
+                        $("#img2").attr({"src":"ball2/ball2_" + ball2Num + ".png"})
+                        ball2Num = ball2Num + 1;
+                    }
+                    else if(ball2Num == 16){
+                        ball2Num = 16;
+                        $("#img2").attr({"src":"ball2/ball2_" + ball2Num + ".png"})
+                        $("#img2").animate({'opacity':'1'},1000,function(){
+                            $("#img2").css({"display":"none"})
+                        })
+                    }
+                }
+            },60)
+
+
+
+        })
+    </script>
+    <style>
+        * { margin: 0; padding: 0; list-style: none; }
+        a { text-decoration: none; color: inherit; }
+        
+        #bg { width: 100%; height: 100%; position: fixed; background: url(bg/bg_1.jpg) center; background-size: cover; filter: blur(70px); }
+        #img1 { width: 664px; height: 614px; position: absolute; left: 50%; margin-left: -332px; bottom: 10%; }
+        #img2 { width: 664px; height: 614px; position: absolute; left: 50%; margin-left: -332px; bottom: 10%; display: none; }
+        #logo { text-align: center; width: 100%; height: 35%; position: absolute; left: 0; right: 0; margin: auto; top: 15%; box-sizing: border-box; }
+        #logo>img { height: 100%;}
+        .cache>.c { width: 1px; height: 1px; opacity: 0; }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="bg"></div>
+        <div id="logo">
+            <img src="bg/logo.png" alt="">
+        </div>
+        <img src="ball1/ball1_0.png" alt="" id="img1">
+        <img src="ball2/ball2_16.png" alt="" id="img2">
+    </div>
+<div class="cache">
+    <img src="ball1/ball1_0.png" alt="" class="c">
+    <img src="ball1/ball1_1.png" alt="" class="c">
+    <img src="ball1/ball1_2.png" alt="" class="c">
+    <img src="ball1/ball1_3.png" alt="" class="c">
+    <img src="ball1/ball1_4.png" alt="" class="c">
+    <img src="ball1/ball1_5.png" alt="" class="c">
+    <img src="ball1/ball1_6.png" alt="" class="c">
+    <img src="ball1/ball1_7.png" alt="" class="c">
+    <img src="ball1/ball1_8.png" alt="" class="c">
+    <img src="ball1/ball1_9.png" alt="" class="c">
+    <img src="ball1/ball1_10.png" alt="" class="c">
+    <img src="ball1/ball1_11.png" alt="" class="c">
+    <img src="ball1/ball1_12.png" alt="" class="c">
+    <img src="ball1/ball1_13.png" alt="" class="c">
+    <img src="ball1/ball1_14.png" alt="" class="c">
+    <img src="ball1/ball1_15.png" alt="" class="c">
+    <img src="ball1/ball1_16.png" alt="" class="c">
+    <img src="ball1/ball1_17.png" alt="" class="c">
+    <img src="ball1/ball1_18.png" alt="" class="c">
+    <img src="ball1/ball1_19.png" alt="" class="c">
+    <img src="ball1/ball1_20.png" alt="" class="c">
+    <img src="ball1/ball1_21.png" alt="" class="c">
+    <img src="ball1/ball1_22.png" alt="" class="c">
+    <img src="ball1/ball1_23.png" alt="" class="c">
+    <img src="ball1/ball1_24.png" alt="" class="c">
+    <img src="ball1/ball1_25.png" alt="" class="c">
+    <img src="ball1/ball1_26.png" alt="" class="c">
+    <img src="ball1/ball1_27.png" alt="" class="c">
+    <img src="ball1/ball1_28.png" alt="" class="c">
+    <img src="ball1/ball1_29.png" alt="" class="c">
+    <img src="ball1/ball1_30.png" alt="" class="c">
+    <img src="ball1/ball1_31.png" alt="" class="c">
+    <img src="ball1/ball1_32.png" alt="" class="c">
+    <img src="ball1/ball1_33.png" alt="" class="c">
+    <img src="ball1/ball1_34.png" alt="" class="c">
+    <img src="ball1/ball1_35.png" alt="" class="c">
+    <img src="ball1/ball1_36.png" alt="" class="c">
+    <img src="ball1/ball1_37.png" alt="" class="c">
+    <img src="ball1/ball1_38.png" alt="" class="c">
+    <img src="ball1/ball1_39.png" alt="" class="c">
+    <img src="ball1/ball1_40.png" alt="" class="c">
+    <img src="ball1/ball1_41.png" alt="" class="c">
+    <img src="ball1/ball1_42.png" alt="" class="c">
+    <img src="ball1/ball1_43.png" alt="" class="c">
+    <img src="ball1/ball1_44.png" alt="" class="c">
+    <img src="ball1/ball1_45.png" alt="" class="c">
+    <img src="ball1/ball1_46.png" alt="" class="c">
+    <img src="ball1/ball1_47.png" alt="" class="c">
+    <img src="ball1/ball1_48.png" alt="" class="c">
+    <img src="ball1/ball1_49.png" alt="" class="c">
+    <img src="ball1/ball1_50.png" alt="" class="c">
+    <img src="ball1/ball1_51.png" alt="" class="c">
+    <img src="ball1/ball1_52.png" alt="" class="c">
+    <img src="ball1/ball1_53.png" alt="" class="c">
+    <img src="ball1/ball1_54.png" alt="" class="c">
+    <img src="ball1/ball1_55.png" alt="" class="c">
+    <img src="ball1/ball1_56.png" alt="" class="c">
+    <img src="ball1/ball1_57.png" alt="" class="c">
+    <img src="ball1/ball1_58.png" alt="" class="c">
+    <img src="ball1/ball1_59.png" alt="" class="c">
+    <img src="ball1/ball1_60.png" alt="" class="c">
+    <img src="ball1/ball1_61.png" alt="" class="c">
+    <img src="ball1/ball1_62.png" alt="" class="c">
+    <img src="ball1/ball1_63.png" alt="" class="c">
+    <img src="ball1/ball1_64.png" alt="" class="c">
+    <img src="ball1/ball1_65.png" alt="" class="c">
+    <img src="ball1/ball1_66.png" alt="" class="c">
+    <img src="ball1/ball1_67.png" alt="" class="c">
+    <img src="ball1/ball1_68.png" alt="" class="c">
+    <img src="ball1/ball1_69.png" alt="" class="c">
+    <img src="ball1/ball1_70.png" alt="" class="c">
+    <img src="ball1/ball1_71.png" alt="" class="c">
+    <img src="ball1/ball1_72.png" alt="" class="c">
+    <img src="ball1/ball1_73.png" alt="" class="c">
+    <img src="ball1/ball1_74.png" alt="" class="c">
+    <img src="ball1/ball1_75.png" alt="" class="c">
+    <img src="ball1/ball1_76.png" alt="" class="c">
+    <img src="ball1/ball1_77.png" alt="" class="c">
+    <img src="ball1/ball1_78.png" alt="" class="c">
+    <img src="ball1/ball1_79.png" alt="" class="c">
+    <img src="ball1/ball1_80.png" alt="" class="c">
+    <img src="ball1/ball1_81.png" alt="" class="c">
+    <img src="ball1/ball1_82.png" alt="" class="c">
+    <img src="ball1/ball1_83.png" alt="" class="c">
+    <img src="ball1/ball1_84.png" alt="" class="c">
+    <img src="ball1/ball1_85.png" alt="" class="c">
+    <img src="ball1/ball1_86.png" alt="" class="c">
+    <img src="ball1/ball1_87.png" alt="" class="c">
+    <img src="ball1/ball1_88.png" alt="" class="c">
+    <img src="ball1/ball1_89.png" alt="" class="c">
+    <img src="ball1/ball1_90.png" alt="" class="c">
+    <img src="ball1/ball1_91.png" alt="" class="c">
+    <img src="ball1/ball1_92.png" alt="" class="c">
+    <img src="ball1/ball1_93.png" alt="" class="c">
+    <img src="ball1/ball1_94.png" alt="" class="c">
+    <img src="ball1/ball1_95.png" alt="" class="c">
+    <img src="ball1/ball1_96.png" alt="" class="c">
+    <img src="ball1/ball1_97.png" alt="" class="c">
+    <img src="ball1/ball1_98.png" alt="" class="c">
+    <img src="ball1/ball1_99.png" alt="" class="c">
+    <img src="ball1/ball1_100.png" alt="" class="c">
+    <img src="ball1/ball1_101.png" alt="" class="c">
+    <img src="ball1/ball1_102.png" alt="" class="c">
+    <img src="ball1/ball1_103.png" alt="" class="c">
+    <img src="ball1/ball1_104.png" alt="" class="c">
+    <img src="ball1/ball1_105.png" alt="" class="c">
+    <img src="ball1/ball1_106.png" alt="" class="c">
+    <img src="ball1/ball1_107.png" alt="" class="c">
+    <img src="ball1/ball1_108.png" alt="" class="c">
+    <img src="ball1/ball1_109.png" alt="" class="c">
+    <img src="ball1/ball1_110.png" alt="" class="c">
+</div>
+</body>
+</html>
